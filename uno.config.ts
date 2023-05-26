@@ -23,11 +23,9 @@ export default defineConfig({
         sans: 'Inter',
         serif: 'Open Sans',
         mono: 'JetBrains Mono',
+        arvo: 'Arvo',
       },
     }),
   ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup(),
-  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
 })
