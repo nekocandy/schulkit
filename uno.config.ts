@@ -23,7 +23,10 @@ export default defineConfig({
         sans: 'Inter',
         serif: 'Open Sans',
         mono: 'JetBrains Mono',
-        arvo: 'Arvo',
+        arvo: {
+          name: 'Arvo',
+          weights: [400, 700],
+        },
       },
     }),
   ],
