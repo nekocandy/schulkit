@@ -38,8 +38,8 @@ const foodItems = ref(items)
 
 <template>
   <div class="w-full flex flex-col rounded-xl bg-[#88e042] text-white">
-    <div class="flex items-center justify-between rounded-t-xl bg-[#457b1b] px-6 py-6">
-      <div class="i-mdi-noodles" />
+    <div class="flex items-center justify-between rounded-t-xl bg-[#457b1b] px-6 py-3">
+      <div class="i-mdi-noodles h-6 w-6" />
       <div>Canteen Food Availability</div>
     </div>
 

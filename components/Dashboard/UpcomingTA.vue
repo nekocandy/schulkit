@@ -9,7 +9,7 @@ const upcomingList = ref([
 
 <template>
   <div class="h-full w-full flex flex-col rounded-xl bg-[#f22c2c]">
-    <div class="flex items-center justify-between rounded-t-xl bg-[#af2828] px-6 py-4 text-white">
+    <div class="flex items-center justify-between rounded-t-xl bg-[#af2828] px-6 py-3 text-white">
       <div class="i-tabler-file-text h-6 w-6" />
 
       <div>

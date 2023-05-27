@@ -4,8 +4,8 @@ const todos = ref([])
 
 <template>
   <div class="h-fit flex flex-col rounded-xl bg-[#0c8ce9]">
-    <div class="flex items-center justify-between rounded-t-xl bg-[#005593] px-6 py-4 text-white">
-      <div class="i-tabler-cloud-fog" />
+    <div class="flex items-center justify-between rounded-t-xl bg-[#005593] px-6 py-3 text-white">
+      <div class="i-tabler-cloud-fog h-6 w-6" />
 
       <div>
         Weather

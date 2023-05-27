@@ -4,8 +4,8 @@ const todos = ref([])
 
 <template>
   <div class="h-full w-full flex flex-col rounded-xl bg-[#ffcc00]">
-    <div class="flex items-center justify-between rounded-t-xl bg-[#ad8b00] px-6 py-4 text-white">
-      <div class="i-tabler-checklist" />
+    <div class="flex items-center justify-between rounded-t-xl bg-[#ad8b00] px-6 py-3 text-white">
+      <div class="i-tabler-checklist h-6 w-6" />
 
       <div>
         To-Do List
