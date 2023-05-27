@@ -11,8 +11,9 @@ definePageMeta({
       <DashboardCanteen class="max-w-1/2" />
     </div>
 
-    <div class="w-1/2 flex flex-col">
+    <div class="w-1/2 flex flex-col gap-4">
       <DashboardWeatherCard />
+      <DashboardUpcomingTA />
     </div>
   </div>
 </template>
