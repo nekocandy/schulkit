@@ -1,8 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: 'login',
-})
-
 const username = ref('')
 const password = ref('')
 
@@ -11,7 +7,13 @@ const isLogin = ref(true)
 
 <template>
   <div class="absolute bottom-0 left-0 right-0 top-0 grid grid-cols-12 h-screen w-full gap-8 bg-[#ffcc00] font-arvo">
-    <div class="col-span-5 h-full w-full flex flex-col items-center justify-center gap-12 border-r-15 border-[#2c37d8] rounded-r-3xl bg-white">
+    <div class="relative col-span-5 h-full w-full flex flex-col items-center justify-center gap-12 border-r-15 border-[#2c37d8] rounded-r-3xl bg-white">
+      <div absolute right-0 top-16 class="-mr-30.5">
+        <svg class="h-12" viewBox="0 0 208 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M208 2.25995V7.62939e-06L3.58433e-06 0L0 82L208 82V79.7401C206.996 79.6438 205.995 79.2339 205.134 78.4498L168.061 44.6972C165.882 42.7138 165.882 39.2862 168.061 37.3028L205.134 3.55017C205.995 2.76613 206.996 2.35623 208 2.25995Z" fill="#F22C2C" />
+        </svg>
+      </div>
+
       <div class="text-6xl font-bold">
         Schulkit
       </div>
