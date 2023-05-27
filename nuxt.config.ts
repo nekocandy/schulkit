@@ -21,4 +21,10 @@ export default defineNuxtConfig({
       realmAppId: process.env.NUXT_PUBLIC_REALM_APP_ID,
     },
   },
+
+  vite: {
+    define: {
+      'process.env.VSCODE_TEXTMATE_DEBUG': 'false',
+    },
+  },
 })
