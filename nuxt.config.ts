@@ -5,4 +5,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
   ],
+  css: [
+    'vue-toast-notification/dist/theme-sugar.css',
+  ],
 })
