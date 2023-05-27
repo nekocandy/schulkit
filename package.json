@@ -27,6 +27,8 @@
     "node": "18.16.0"
   },
   "dependencies": {
-    "realm-web": "^2.0.0"
+    "@t3-oss/env-nuxt": "^0.3.1",
+    "realm-web": "^2.0.0",
+    "zod": "^3.21.4"
   }
 }
