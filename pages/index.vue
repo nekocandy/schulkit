@@ -9,7 +9,7 @@ definePageMeta({
     <div class="w-full flex flex-col gap-4">
       <div class="h-full w-full flex gap-4">
         <DashboardTodoList class="h-full max-w-2/6" />
-        <DashboardTodoList class="h-full max-w-4/6" />
+        <DashboardCalendar class="h-full max-w-4/6" />
       </div>
       <div class="h-fit flex gap-4">
         <DashboardCanteen class="w-full" />
