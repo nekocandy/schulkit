@@ -1,8 +1,45 @@
 <script setup lang="ts">
+import { Credentials } from 'realm-web'
+
+const { $toast } = useNuxtApp()
 const username = ref('')
 const password = ref('')
 
 const isLogin = ref(true)
+
+const realmApp = useRealmApp()
+
+async function loginUser() {
+  try {
+    await realmApp.logIn(Credentials.emailPassword(username.value, password.value))
+  }
+  catch (error: any) {
+    $toast.error(`Error creating user - ${error.toString()}`)
+  }
+}
+
+async function createUser() {
+  try {
+    await realmApp.emailPasswordAuth.registerUser({ email: username.value, password: password.value })
+    $toast.success('User created successfully, check your email for confirmation!')
+  }
+  catch (error: any) {
+    $toast.error(`Error creating user - ${error.toString()}`)
+  }
+}
+
+async function handleButtonClick() {
+  if (isLogin.value)
+    await loginUser()
+
+  else
+    await createUser()
+}
+
+watch(isLogin, () => {
+  username.value = ''
+  password.value = ''
+})
 </script>
 
 <template>
@@ -37,7 +74,7 @@ const isLogin = ref(true)
         </div>
 
         <div class="w-full">
-          <button class="w-full rounded-full bg-black px-8 py-2 text-white hover:(bg-opacity-95)">
+          <button class="w-full rounded-full bg-black px-8 py-2 text-white hover:(bg-opacity-95)" @click="handleButtonClick">
             <span v-if="isLogin">
               Login
             </span>
