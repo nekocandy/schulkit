@@ -1,3 +1,5 @@
+import { App } from 'realm-web'
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const token = query.token as string
@@ -10,13 +12,16 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const app = useRealmApp()
+  const config = useRuntimeConfig()
+
+  const app = new App({ id: config.realmAppId })
   try {
     await app.emailPasswordAuth.confirmUser({ token, tokenId })
 
-    sendRedirect(event, '/dashboard')
+    return sendRedirect(event, '/dashboard', 302)
   }
   catch (error: any) {
+    console.error('verify user', error)
     throw createError({
       statusCode: 500,
       message: error.message,
