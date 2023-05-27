@@ -6,7 +6,7 @@ const isLogin = ref(true)
 </script>
 
 <template>
-  <div class="absolute bottom-0 left-0 right-0 top-0 grid grid-cols-12 h-screen w-full gap-8 bg-[#ffcc00] font-arvo">
+  <div class="absolute bottom-0 left-0 right-0 top-0 z-10 grid grid-cols-12 h-screen w-full gap-8 bg-[#ffcc00] font-arvo">
     <div class="relative col-span-5 h-full w-full flex flex-col items-center justify-center gap-12 border-r-15 border-[#2c37d8] rounded-r-3xl bg-white">
       <div absolute right-0 top-16 class="-mr-30.5">
         <svg class="h-12" viewBox="0 0 208 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,20 +62,28 @@ const isLogin = ref(true)
     </div>
 
     <!-- quote -->
-    <div class="col-span-7 h-full w-full flex flex-col items-center justify-center">
-      <div class="w-4/6 flex flex-col items-center gap-8 rounded-xl bg-[#ffe168] px-10 py-15 font-arvo">
+    <div class="z-10 col-span-7 h-full w-full flex flex-col items-center justify-center">
+      <div class="relative w-4/6 flex flex-col gap-8 rounded-xl bg-[#ffe168] px-10 px-30 py-20 text-left font-arvo">
         <div class="text-left text-3xl font-bold">
           <div>Manage your school,</div>
           <span>the Schul way!</span>
         </div>
 
-        <div class="w-3/4 text-sm text-[#695400]">
+        <div class="text-sm text-[#695400]">
           A toolkit specifically designed to help you with studies,  manage notes and keep track for your assignments, tests as well as many other things!
         </div>
 
-        <div class="text-sm text-[#695400]">
+        <div class="text-left text-sm text-[#695400]">
           Hop on to see what is it all about.
         </div>
+
+        <!-- icons -->
+        <img class="absolute left-0 top-12 z-10 inline-block h-20 w-20 -ml-10 -rotate-30" src="/login/15.svg">
+        <img class="absolute bottom-20 left-0 h-20 w-20 -z-1 -ml-10 -rotate-90" src="/login/14.svg">
+        <img class="absolute bottom-0 left-0 h-20 w-20 -z-1 -mb-14 -ml-1" src="/login/17.svg">
+        <img class="absolute bottom-0 right-0 z-20 h-20 w-20 rotate-30 -mb-14" src="/login/13.svg">
+        <img class="absolute bottom-1/2 right-0 top-1/2 h-20 w-20 -z-20 -mr-10" src="/login/16.svg">
+        <img class="absolute right-0 top-0 z-20 h-20 w-20 rotate-33 -mr-8 -mt-8" src="/login/12.svg">
       </div>
     </div>
   </div>
