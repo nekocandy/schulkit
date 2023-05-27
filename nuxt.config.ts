@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   ],
   css: [
     'vue-toast-notification/dist/theme-sugar.css',
+    'v-calendar/style.css',
   ],
 
   experimental: {
