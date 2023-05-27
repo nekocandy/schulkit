@@ -22,7 +22,7 @@ useIntervalFn(() => {
         <div class="i-tabler-click h-8 w-8" />
       </NuxtLink>
 
-      <NuxtLink href="/" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
+      <NuxtLink href="/paste" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
         <div class="i-tabler-clipboard-copy h-8 w-8" />
       </NuxtLink>
 
