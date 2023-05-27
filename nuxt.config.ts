@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     'vue-toast-notification/dist/theme-sugar.css',
   ],
 
+  experimental: {
+    watcher: 'chokidar',
+  },
+
   runtimeConfig: {
     realmAppId: process.env.NUXT_PUBLIC_REALM_APP_ID,
 
