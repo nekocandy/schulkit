@@ -8,4 +8,12 @@ export default defineNuxtConfig({
   css: [
     'vue-toast-notification/dist/theme-sugar.css',
   ],
+
+  runtimeConfig: {
+    realmAppId: process.env.NUXT_PUBLIC_REALM_APP_ID,
+
+    public: {
+      realmAppId: process.env.NUXT_PUBLIC_REALM_APP_ID,
+    },
+  },
 })
