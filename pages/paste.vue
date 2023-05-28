@@ -27,6 +27,9 @@ async function saveCode() {
       code: insertedDocument.insertedId.toString(),
     },
   })
+
+  isViewMode.value = true
+  htmlCode.value = highlighter.codeToHtml(code.value, {})
 }
 
 async function newCode() {
