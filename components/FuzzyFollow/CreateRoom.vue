@@ -5,12 +5,16 @@ async function createRoom() {
 
   // eslint-disable-next-line no-alert
   const name = prompt('Enter room name')
+  // eslint-disable-next-line no-alert
+  const pdfURL = prompt('Enter PDF URL', 'https://cdn.discordapp.com/attachments/1112321327626473572/1112321375911292938/Compiler_Design_Lab_Manual.pdf')
 
   const roomsCollection = useCollection('rooms')
 
   const insertedId = await roomsCollection.insertOne({
-    name: 'test',
+    name,
+    pdfURL,
     owner: user!.id,
+    currentPage: 0,
     createdAt: new Date(),
     updatedAt: new Date(),
   })
@@ -21,7 +25,7 @@ async function createRoom() {
 </script>
 
 <template>
-  <button class="bg-[#ffcc00] px-4 py-2 text-black" @click="createRoom">
+  <button class="rounded-md bg-[#ffcc00] px-4 py-2 text-black" @click="createRoom">
     Create Room
   </button>
 </template>
