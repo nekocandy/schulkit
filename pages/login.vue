@@ -4,12 +4,14 @@ import { Credentials } from 'realm-web'
 const { $toast } = useNuxtApp()
 const email = ref('')
 const password = ref('')
+const isLoading = ref(false)
 
 const isLogin = ref(true)
 
 const realmApp = useRealmApp()
 
 async function loginUser() {
+  isLoading.value = true
   try {
     await realmApp.logIn(Credentials.emailPassword(email.value, password.value))
     $toast.success('User logged in successfully!')
@@ -18,15 +20,22 @@ async function loginUser() {
   catch (error: any) {
     $toast.error(`Error creating user - ${error.toString()}`)
   }
+  finally {
+    isLoading.value = false
+  }
 }
 
 async function createUser() {
+  isLoading.value = true
   try {
     await realmApp.emailPasswordAuth.registerUser({ email: email.value, password: password.value })
     $toast.success('User created successfully, check your email for confirmation!')
   }
   catch (error: any) {
     $toast.error(`Error creating user - ${error.toString()}`)
+  }
+  finally {
+    isLoading.value = false
   }
 }
 
@@ -76,12 +85,17 @@ watch(isLogin, () => {
         </div>
 
         <div class="w-full">
-          <button class="w-full rounded-full bg-black px-8 py-2 text-white hover:(bg-opacity-95)" @click="handleButtonClick">
-            <span v-if="isLogin">
+          <button class="w-full flex items-center justify-center rounded-full bg-black px-8 py-2 text-white hover:(bg-opacity-95)" @click="handleButtonClick">
+            <div
+              v-if="isLoading"
+              class="i-tabler-circle-dashed h-6 w-6 animate-spin text-zinc-400"
+            />
+
+            <span v-if="!isLoading && isLogin">
               Login
             </span>
 
-            <span v-else>
+            <span v-else-if="!isLoading && !isLogin">
               Register
             </span>
           </button>
