@@ -7,8 +7,14 @@ const name = 'Hello'
 
 <template>
   <div class="h-full w-full flex flex-col">
-    <div class="py-4 text-3xl">
-      Fuzzy Follow
+    <div class="flex items-center justify-between pt-2">
+      <div class="py-4 text-3xl">
+        Fuzzy Follow
+      </div>
+
+      <div>
+        <FuzzyFollowCreateRoom />
+      </div>
     </div>
 
     <div class="h-full w-full flex flex-1 gap-4">
