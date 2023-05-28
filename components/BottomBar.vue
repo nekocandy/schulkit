@@ -52,7 +52,7 @@ const links = [
 
     <div class="flex items-center gap-4">
       <NuxtLink
-        v-for="link in links" :key="link.path" :href="link.path" class="h-full border-b-6 rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98" :class="[
+        v-for="link in links" :key="link.path" :href="link.path" class="h-full border-b-4 rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98" :class="[
           $route.path === link.path ? 'border-white' : 'border-[#000883] ',
         ]"
       >
