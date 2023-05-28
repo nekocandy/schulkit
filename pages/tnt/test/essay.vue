@@ -4,10 +4,13 @@ definePageMeta({
 })
 const endTime = dayjs().add(1, 'hour')
 const timeLeft = ref('')
+const isTNTEnabled = ref(false)
 
 useIntervalFn(() => {
-  const { $toast } = useNuxtApp()
+  if (isTNTEnabled.value)
+    return
 
+  const { $toast } = useNuxtApp()
   $toast.info('Saving data...')
 }, 5000)
 
@@ -32,7 +35,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <button class="rounded-t-xl bg-black px-8 py-1 text-lg font-bold text-white">
+      <button class="z-20 rounded-t-xl bg-black px-8 py-1 text-lg font-bold text-white" @click="isTNTEnabled = !isTNTEnabled">
         TNT Help
       </button>
     </div>
@@ -50,9 +53,82 @@ onMounted(() => {
         </button>
       </div>
     </div>
+
+    <!-- tnt help -->
+    <div v-if="isTNTEnabled" class="absolute bottom-0 left-0 right-0 top-0 z-10 h-full w-full flex items-center justify-center backdrop-blur-md">
+      <div class="flex flex-col gap-4 rounded-xl bg-black p-6">
+        <div class="bg-[#cbf8a7] px-6 py-6 font-bold">
+          It’s alright, your progress has been saved. Take a breather and calm
+          yourself. The test can wait.
+        </div>
+
+        <div class="flex items-center justify-center gap-4 bg-[#cbf8a7] px-6 py-4 text-sm font-bold">
+          <button class="border-4 border-[#a5a5a5] rounded-lg bg-white px-8 py-2">
+            End Test and give later
+          </button>
+
+          <button class="border-4 border-[#a5a5a5] rounded-lg bg-white px-8 py-2">
+            Resume (changing tab will end test)
+          </button>
+
+          <button class="border-4 border-[#a5a5a5] rounded-lg bg-white px-8 py-2">
+            Breathe Aid
+          </button>
+
+          <button class="border-4 border-[#a5a5a5] rounded-lg bg-white px-8 py-2">
+            Mail Professor
+          </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-2 bg-[#ffe168] px-6 py-12 font-bold uppercase">
+          <div>
+            Concentrate on your breathing. Take deep breaths in and out.
+          </div>
+          <div class="ping" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.ping {
+  --uib-size: 100px;
+  --uib-speed: 8s;
+  --uib-color: #2c37d8;
 
+  position: relative;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.ping::before,
+.ping::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  animation: pulse var(--uib-speed) linear infinite;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.ping::after {
+  animation-delay: calc(var(--uib-speed) / -2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
 </style>
