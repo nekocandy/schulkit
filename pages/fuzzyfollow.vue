@@ -3,6 +3,10 @@ definePageMeta({
   layout: 'page',
 })
 const name = 'Hello'
+
+function startTracking(objectId: string, pdfURL: string) {
+
+}
 </script>
 
 <template>
@@ -14,7 +18,7 @@ const name = 'Hello'
 
       <div class="flex gap-2">
         <FuzzyFollowCreateRoom />
-        <FuzzyFollowJoinRoom />
+        <FuzzyFollowJoinRoom @start-tracking="startTracking" />
       </div>
     </div>
 

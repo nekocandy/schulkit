@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { BSON } from 'realm-web'
 
+const emit = defineEmits(['startTracking'])
+
 async function createRoom() {
   const realmApp = useRealmApp()
   const user = realmApp.currentUser
@@ -25,6 +27,8 @@ async function createRoom() {
 
   // eslint-disable-next-line no-alert
   alert(`Inserted id: ${objectId._id}`)
+
+  emit('startTracking', objectId._id, objectId.pdfURL)
 }
 </script>
 
