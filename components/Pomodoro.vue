@@ -31,12 +31,12 @@ watch(isRunning, (value) => {
 </script>
 
 <template>
-  <div class="h-fit w-fit flex cursor-pointer items-center gap-2 rounded-full bg-[#f22c2c] py-1 pl-3 pr-1 -mb-4" @click="isRunning = !isRunning">
+  <div class="h-fit w-fit flex cursor-pointer items-center gap-2 rounded-full bg-[#f22c2c] py-1 pl-3 pr-1 text-white -mb-4" @click="isRunning = !isRunning">
     <div class="font-arvo font-bold">
       {{ isRunning ? timeLeft : 'Pomo!' }}
     </div>
     <div class="rounded-full bg-[#ffcc00] p-2">
-      <div class="i-tabler-hourglass-high" />
+      <div class="i-tabler-hourglass-high text-black" />
     </div>
   </div>
 </template>
