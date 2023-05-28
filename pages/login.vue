@@ -2,7 +2,7 @@
 import { Credentials } from 'realm-web'
 
 const { $toast } = useNuxtApp()
-const username = ref('')
+const email = ref('')
 const password = ref('')
 
 const isLogin = ref(true)
@@ -11,7 +11,7 @@ const realmApp = useRealmApp()
 
 async function loginUser() {
   try {
-    await realmApp.logIn(Credentials.emailPassword(username.value, password.value))
+    await realmApp.logIn(Credentials.emailPassword(email.value, password.value))
     $toast.success('User logged in successfully!')
     navigateTo('/')
   }
@@ -22,7 +22,7 @@ async function loginUser() {
 
 async function createUser() {
   try {
-    await realmApp.emailPasswordAuth.registerUser({ email: username.value, password: password.value })
+    await realmApp.emailPasswordAuth.registerUser({ email: email.value, password: password.value })
     $toast.success('User created successfully, check your email for confirmation!')
   }
   catch (error: any) {
@@ -39,7 +39,7 @@ async function handleButtonClick() {
 }
 
 watch(isLogin, () => {
-  username.value = ''
+  email.value = ''
   password.value = ''
 })
 </script>
@@ -66,7 +66,7 @@ watch(isLogin, () => {
 
         <div class="flex flex-col gap-2">
           <input
-            v-model="username"
+            v-model="email"
             type="email" placeholder="Email" class="rounded-full bg-[#2C37D8] px-4 py-1 font-serif text-white placeholder-text-white"
           >
           <input
