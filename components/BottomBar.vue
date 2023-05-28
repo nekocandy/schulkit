@@ -39,6 +39,17 @@ const links = [
     icon: 'i-tabler-bomb',
   },
 ]
+
+onMounted(() => {
+  const realm = useRealmApp()
+  const user = realm.currentUser
+
+  const { $toast } = useNuxtApp()
+  if (!user) {
+    $toast.error('Please login to continue')
+    navigateTo('/login')
+  }
+})
 </script>
 
 <template>
