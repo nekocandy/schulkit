@@ -6,7 +6,7 @@ async function createRoom() {
   // eslint-disable-next-line no-alert
   const name = prompt('Enter room name')
   // eslint-disable-next-line no-alert
-  const pdfURL = prompt('Enter PDF URL', 'https://schulkit.tech/cd.pdf')
+  const pdfURL = prompt('Enter PDF URL', 'https://schulkit.tech/lorem.pdf')
 
   const roomsCollection = useCollection('rooms')
 
