@@ -6,6 +6,39 @@ useIntervalFn(() => {
   day.value = dayjs().format('dddd')
   time.value = dayjs().format('hh:mm:ss A')
 }, 1000)
+
+const links = [
+  {
+    name: 'Dashboard',
+    path: '/',
+    icon: 'i-tabler-home',
+  },
+  {
+    name: 'Professor Sync',
+    path: '/professor-sync',
+    icon: 'i-tabler-click',
+  },
+  {
+    name: 'Draw',
+    path: '/draw',
+    icon: 'i-tabler-scribble',
+  },
+  {
+    name: 'Paste',
+    path: '/paste',
+    icon: 'i-tabler-clipboard-copy',
+  },
+  {
+    name: 'Notice Board',
+    path: '/notice-board',
+    icon: 'i-tabler-flag-3',
+  },
+  {
+    name: 'TNT',
+    path: '/tnt/tests',
+    icon: 'i-tabler-bomb',
+  },
+]
 </script>
 
 <template>
@@ -18,24 +51,16 @@ useIntervalFn(() => {
     </div>
 
     <div class="flex items-center gap-4">
-      <NuxtLink href="/" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
-        <div class="i-tabler-click h-8 w-8" />
-      </NuxtLink>
-
-      <NuxtLink href="/paste" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
-        <div class="i-tabler-clipboard-copy h-8 w-8" />
-      </NuxtLink>
-
-      <NuxtLink href="/" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
-        <div class="i-tabler-flag-3 h-8 w-8" />
-      </NuxtLink>
-
-      <NuxtLink href="/" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
-        <div class="i-tabler-bomb h-8 w-8" />
-      </NuxtLink>
-
-      <NuxtLink href="/" class="h-full border-b-6 border-[#000883] rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98">
-        <div class="i-tabler-message-report h-8 w-8" />
+      <NuxtLink
+        v-for="link in links" :key="link.path" :href="link.path" class="h-full border-b-6 rounded bg-[#414bdc] px-2 py-2 hover:bg-opacity-98" :class="[
+          $route.path === link.path ? 'border-white' : 'border-[#000883] ',
+        ]"
+      >
+        <div
+          class="h-8 w-8" :class="[
+            link.icon,
+          ]"
+        />
       </NuxtLink>
     </div>
 
