@@ -12,6 +12,8 @@ const realmApp = useRealmApp()
 async function loginUser() {
   try {
     await realmApp.logIn(Credentials.emailPassword(username.value, password.value))
+    $toast.success('User logged in successfully!')
+    navigateTo('/')
   }
   catch (error: any) {
     $toast.error(`Error creating user - ${error.toString()}`)
