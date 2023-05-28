@@ -1,6 +1,24 @@
 import './env'
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'SchulKit',
+      meta: [
+        {
+          name: 'description',
+          content: 'SchulKit - Manage your school, the Schul way! ',
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          href: '/favicon.png',
+        },
+      ],
+    },
+  },
+
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
