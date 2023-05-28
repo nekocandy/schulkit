@@ -67,7 +67,7 @@ watch(isLogin, () => {
         <div class="flex flex-col gap-2">
           <input
             v-model="username"
-            type="text" placeholder="Email" class="rounded-full bg-[#2C37D8] px-4 py-1 font-serif text-white placeholder-text-white"
+            type="email" placeholder="Email" class="rounded-full bg-[#2C37D8] px-4 py-1 font-serif text-white placeholder-text-white"
           >
           <input
             v-model="password"

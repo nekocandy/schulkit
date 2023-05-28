@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const day = ref(dayjs().format('dddd'))
 const time = ref(dayjs().format('hh:mm A'))
+const isLogoutLoading = ref(false)
 
 useIntervalFn(() => {
   day.value = dayjs().format('dddd')
@@ -41,6 +42,7 @@ const links = [
 ]
 
 async function logout() {
+  isLogoutLoading.value = true
   const realm = useRealmApp()
   const { $toast } = useNuxtApp()
 
@@ -51,6 +53,9 @@ async function logout() {
   }
   catch (error: any) {
     $toast.error(`Error logging out user - ${error.toString()}`)
+  }
+  finally {
+    isLogoutLoading.value = false
   }
 }
 
@@ -97,7 +102,8 @@ onMounted(() => {
 
       <div>
         <button class="rounded-full bg-[#a5a5a5] p-2" @click="logout">
-          <div class="i-tabler-logout h-8 w-10 text-black" />
+          <div v-if="isLogoutLoading" class="i-tabler-circle-dashed h-8 w-10 animate-spin text-zinc-600" />
+          <div v-else class="i-tabler-logout h-8 w-10 text-black" />
         </button>
       </div>
     </div>
