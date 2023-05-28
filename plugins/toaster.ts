@@ -1,8 +1,8 @@
 import { useToast } from 'vue-toast-notification'
 
-const toast = useToast()
-
 export default defineNuxtPlugin(() => {
+  const toast = useToast()
+
   return {
     provide: {
       toast,
