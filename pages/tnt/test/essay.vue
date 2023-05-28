@@ -35,8 +35,14 @@ onMounted(() => {
       The American Revolution was a major turning point in world history. What were the causes of the American Revolution?
     </div>
 
-    <div class="h-full w-full flex-1 pt-4">
+    <div class="relative h-full w-full flex-1 pt-4">
       <textarea class="h-full w-full resize-none rounded-lg px-4 py-4" placeholder="enter your answer here" />
+
+      <div class="absolute bottom-0 right-0 pb-4 pr-4">
+        <button class="rounded-lg bg-[#88ef37] px-4 py-2 text-sm font-bold">
+          Submit
+        </button>
+      </div>
     </div>
   </div>
 </template>
