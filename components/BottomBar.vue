@@ -15,8 +15,8 @@ const links = [
     icon: 'i-tabler-home',
   },
   {
-    name: 'Professor Sync',
-    path: '/professor-sync',
+    name: 'Fuzzy Follow',
+    path: '/fuzzyfollow',
     icon: 'i-tabler-click',
   },
   {
