@@ -6,6 +6,8 @@ const endTime = dayjs().add(1, 'hour')
 const timeLeft = ref('')
 const isTNTEnabled = ref(false)
 
+const focused = useWindowFocus()
+
 useIntervalFn(() => {
   if (isTNTEnabled.value)
     return
@@ -20,6 +22,12 @@ onMounted(() => {
     const secondsLeft = endTime.diff(dayjs(), 'second') - minutesLeft * 60
     timeLeft.value = `${minutesLeft}:${secondsLeft.toString().padStart(2, '0')}`
   }, 1000)
+})
+
+watch(focused, (newValue, oldValue) => {
+  if (!newValue)
+    // eslint-disable-next-line no-alert
+    alert('Do not change tab')
 })
 </script>
 
