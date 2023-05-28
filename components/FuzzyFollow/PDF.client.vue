@@ -3,7 +3,13 @@ const props = defineProps({
   pdfURL: String,
 })
 
+const emit = defineEmits(['startTracking'])
+
 const iframeRef = ref<HTMLIFrameElement>()
+
+function startTracking(...args: any[]) {
+  emit('startTracking', ...args)
+}
 
 watch(
   () => props.pdfURL,
@@ -44,7 +50,14 @@ watch(
 
 <template>
   <div class="flex-1 border-2 border-black rounded-xl bg-white">
-    <iframe ref="iframeRef" class="h-full w-full" :src="$props.pdfURL" frameborder="0" />
+    <iframe v-if="$props.pdfURL" ref="iframeRef" class="h-full w-full" :src="$props.pdfURL" frameborder="0" />
+    <div v-else class="h-full w-full flex items-center justify-center gap-4">
+      <FuzzyFollowCreateRoom />
+      <div class="font-bold">
+        OR
+      </div>
+      <FuzzyFollowJoinRoom @start-tracking="startTracking" />
+    </div>
   </div>
 </template>
 

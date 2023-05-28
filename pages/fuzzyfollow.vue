@@ -36,7 +36,7 @@ function startTracking(objectId: string, pdfURLFromParent: string) {
           </div>
         </div>
 
-        <FuzzyFollowPDF :pdf-u-r-l="pdfURL" />
+        <FuzzyFollowPDF :pdf-u-r-l="pdfURL" @start-tracking="startTracking" />
       </div>
 
       <div class="h-ful w-5/10 flex flex-col gap-4">
