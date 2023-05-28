@@ -12,8 +12,9 @@ const name = 'Hello'
         Fuzzy Follow
       </div>
 
-      <div>
+      <div class="flex gap-2">
         <FuzzyFollowCreateRoom />
+        <FuzzyFollowJoinRoom />
       </div>
     </div>
 
