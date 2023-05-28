@@ -4,8 +4,10 @@ definePageMeta({
 })
 const name = 'Hello'
 
-function startTracking(objectId: string, pdfURL: string) {
+const pdfURL = ref('')
 
+function startTracking(objectId: string, pdfURLFromParent: string) {
+  pdfURL.value = pdfURLFromParent
 }
 </script>
 
@@ -34,9 +36,7 @@ function startTracking(objectId: string, pdfURL: string) {
           </div>
         </div>
 
-        <div class="flex-1 border-2 border-black rounded-xl bg-white">
-          .
-        </div>
+        <FuzzyFollowPDF :pdf-u-r-l="pdfURL" />
       </div>
 
       <div class="h-ful w-5/10 flex flex-col gap-4">
