@@ -22,13 +22,19 @@ onMounted(() => {
 
 <template>
   <div class="h-full w-full flex flex-col">
-    <div flex items-end gap-2 pl-6>
-      <div class="rounded-t-xl bg-[#f22c2c] px-8 py-1 text-lg font-bold text-white">
-        Essay
+    <div w-full flex items-end justify-between gap-2 px-6>
+      <div flex items-end gap-2>
+        <div class="rounded-t-xl bg-[#f22c2c] px-8 py-1 text-lg font-bold text-white">
+          Essay
+        </div>
+        <div class="rounded-t-xl bg-[#2c37d8] px-8 py-1 text-lg font-bold text-white">
+          {{ timeLeft }}
+        </div>
       </div>
-      <div class="rounded-t-xl bg-[#2c37d8] px-8 py-1 text-lg font-bold text-white">
-        {{ timeLeft }}
-      </div>
+
+      <button class="rounded-t-xl bg-black px-8 py-1 text-lg font-bold text-white">
+        TNT Help
+      </button>
     </div>
 
     <div class="border-2 border-black rounded-xl bg-white px-4 py-4">
