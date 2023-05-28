@@ -30,9 +30,9 @@ defineProps<{
       </div>
 
       <div>
-        <button class="rounded-xl bg-white px-4 py-2">
+        <NuxtLink href="/tnt/test/essay" class="rounded-xl bg-white px-4 py-2">
           Start
-        </button>
+        </NuxtLink>
       </div>
     </div>
   </div>
