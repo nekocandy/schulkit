@@ -2,6 +2,7 @@
 import { BSON } from 'realm-web'
 
 const emit = defineEmits(['startTracking'])
+const { $toast } = useNuxtApp()
 
 async function createRoom() {
   const realmApp = useRealmApp()
@@ -25,8 +26,7 @@ async function createRoom() {
     return
   }
 
-  // eslint-disable-next-line no-alert
-  alert(`Inserted id: ${objectId._id}`)
+  $toast.success(`Found room with ID: ${objectId._id}, joining!`)
 
   emit('startTracking', objectId._id, objectId.pdfURL)
 }
