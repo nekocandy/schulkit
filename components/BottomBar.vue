@@ -40,6 +40,20 @@ const links = [
   },
 ]
 
+async function logout() {
+  const realm = useRealmApp()
+  const { $toast } = useNuxtApp()
+
+  try {
+    await realm.currentUser?.logOut()
+    $toast.success('User logged out successfully!')
+    navigateTo('/login')
+  }
+  catch (error: any) {
+    $toast.error(`Error logging out user - ${error.toString()}`)
+  }
+}
+
 onMounted(() => {
   const realm = useRealmApp()
   const user = realm.currentUser
@@ -75,10 +89,16 @@ onMounted(() => {
       </NuxtLink>
     </div>
 
-    <div>
+    <div class="flex items-center gap-6">
       <div class="flex flex-col items-center justify-center gap-1">
         <div>{{ day }}</div>
         <div>{{ time }}</div>
+      </div>
+
+      <div>
+        <button class="rounded-full bg-[#a5a5a5] p-2" @click="logout">
+          <div class="i-tabler-logout h-8 w-10 text-black" />
+        </button>
       </div>
     </div>
   </div>
